@@ -28,6 +28,7 @@
                 
 
                 <h2 id="is_yunle"></h2>
+            <!-- <p>灵感来自<a href="https://hdgxl.com">顾小林</a></p>-->
             </div>
         </div>
     </div>
@@ -39,7 +40,7 @@
       </div>
       <div class="mdui-dialog-actions">
         <button class="mdui-btn mdui-ripple" mdui-dialog-cancel>哦</button>
-        <button class="mdui-btn mdui-ripple" onclick="window.open(https://www.bilibili.com/video/BV1GJ411x7h7/)">康康！</button>
+        <button class="mdui-btn mdui-ripple" onclick="window.open(`https://www.bilibili.com/video/BV1GJ411x7h7/`)">康康！</button>
       </div>
     </div>
 </body>
@@ -82,14 +83,14 @@
     function xiaolongb(){
         mdui.snackbar("喵喵喵，小洛被锤晕了捏~")
         is_cd=false
-        document.getElementById("is_yunle").innerHTML=小洛晕了呢~
+        document.getElementById("is_yunle").innerHTML=`小洛晕了呢~`
         if (localStorage.getItem("chid") >= 5) {
                 localStorage.setItem("chid",0);
                 new mdui.Dialog('#xlbmvp',{"modal":true}).open()
              }
         setTimeout( function(){
             is_cd=true;
-            document.getElementById("is_yunle").innerHTML=醒了！一个小笼包！
+            document.getElementById("is_yunle").innerHTML=`醒了！一个小笼包！`
             localStorage.setItem("chid",parseInt(localStorage.getItem("chid"))+1)
             document.getElementById("chid").style.width = localStorage.getItem("chid")*20+"%";
             document.getElementById("geshu").innerHTML = localStorage.getItem("chid");
