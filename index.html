@@ -1,214 +1,100 @@
-<!DOCTYPE html>
-<html lang="zh">
+<!doctype html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>洛天依大小姐驾到</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: #ffffff;
-      background: linear-gradient(135deg, #74ebd5, #acb6e5);
-      overflow: hidden;
-      text-align: center;
-    }
-    .error-container {
-      background: rgba(0, 0, 0, 0.8);
-      border-radius: 12px;
-      width: 90%;
-      max-width: 800px;
-      display: flex;
-      flex-direction: row;
-      padding: 30px;
-      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-      animation: fadeIn 1s ease-out;
-      position: relative;
-    }
-    .image-container {
-      flex: 1;
-      margin-right: 20px;
-    }
-    .image-container img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      animation: floatEffect 3s infinite ease-in-out;
-    }
-    .error-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: left;
-    }
-    .error-content h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      text-shadow: 0 0 10px #6cf;
-      animation: floatEffect 3s infinite ease-in-out;
-    }
-    .error-content p {
-      font-size: 18px;
-      margin-bottom: 15px;
-    }
-    .error-content a {
-      display: inline-block;
-      margin-top: 20px;
-      color: #6cf;
-      text-decoration: none;
-      font-size: 18px;
-      border: 2px solid #6cf;
-      padding: 10px 20px;
-      border-radius: 4px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .error-content a:hover {
-      background-color: #6cf;
-      color: #003366;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes floatEffect {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    @media (max-width: 600px) {
-      body {
-        background: linear-gradient(135deg, #74ebd5, #acb6e5), url('https://lty.fans/images/AIhou.png') no-repeat center center fixed;
-        background-size: cover; 
-      }
-      .container {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.8);
-      }
-      .text-section {
-        padding-right: 0;
-      }
-      .image-section {
-        display: none;
-      }
-    }
-    @media (max-width: 600px) {
-              .image-container {
-        display: none; 
-      }
-      body::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: url('https://lty.fans/images/AIhou.png') repeat center center;
-        background-size: cover;
-        opacity: 0.2;
-        animation: blinkStars 2s infinite alternate; 
-      }
-    @keyframes blinkStars {
-      0% { opacity: 0.2; }
-      50% { opacity: 0.5; } 
-      100% { opacity: 0.2; }
-    }
-      .image-container {
-        display: none; 
-      }
-    }
-    .error-container {
-      background: rgba(0, 0, 0, 0.8);
-      border-radius: 12px;
-      width: 90%;
-      max-width: 800px;
-      display: flex;
-      flex-direction: row;
-      padding: 30px;
-      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-      animation: fadeIn 1s ease-out;
-      position: relative;
-    }
-    .popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.8);
-      background: rgba(0, 0, 0, 0.9);
-      color: white;
-      padding: 20px;
-      width: 80%;
-      max-width: 600px;
-      max-height: 70vh;
-      overflow-y: auto;
-      border-radius: 10px;
-      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-      animation: popupFadeIn 0.3s ease-out forwards;
-    }
-    .popup-content {
-      text-align: left;
-      font-size: 16px;
-    }
-    .popup-close {
-      display: block;
-      text-align: right;
-      cursor: pointer;
-      font-size: 24px;
-      color: #6cf;
-      transition: color 0.3s;
-    }
-    .popup-close:hover {
-      color: red;
-    }
-    @keyframes popupFadeIn {
-      from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-      to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  </style>
-</head>
-<body>
-  <div class="error-container">
-    <div class="image-container">
-      <img src="https://lty.fans/images/AIhou.png" alt="访问被阻止">
-    </div>
-    <div class="error-content">
-      <h1>我是洛天依 😄</h1>
-      <p>洛天依是上海禾念信息科技有限公司旗下的虚拟歌手，于2012年7月12日正式出道，是中国第一位VOCALOID虚拟歌手。</p>
-      <p>她的性格天真活泼又不失细腻敏感，代表色为天依蓝(#66ccff)</p>
-      <p>声源由山新（中）、鹿乃（日）担任，现隶属于上海禾念信息科技有限公司</p>
-      <p>绰号：世界第一的吃货殿下</p>
-      <p>生日：7月12日</p>
-      <p>身高：156cm</p>
-      <p>代表色：天依蓝(#66ccff)</p>
-      <p>性格：温柔与坚强并存，心思敏感细腻</p>
+    <meta charset="utf-8">
+    <title>洛天依喵喵喵！</title>
+<link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css">
 
-</div>
-  </div>
-    <!-- 弹窗 -->
-  <div id="errorPopup" class="popup">
-    <span class="popup-close" onclick="closePopup()">&times;</span>
-    <div class="popup-content">
-      <h2>详细错误信息</h2>
-      <p>错误代码: 1000</p>
-      <p>::CLOUDFLARE_ERROR_1000S_BOX::</p>
+</head>
+<body><br><br>
+    <div class="mdui-container mdui-typo">
+        <div class="mdui-row">
+            <div class="mdui-card mdui-col-md-1 mdui-col-lg-5"  style="padding: 2em;" id="dong">
+                <h1>无情捶打洛天依</h1>
+                <h2>喵喵喵~</h2>
+                <div class="mdui-ripple" style="width: 80%;" onclick="boom()">
+                    <img src="luo_tianyi.png" id="lty"  >
+                </div>
+            </div>
+            <div class="mdui-card mdui-col-md-1 mdui-col-lg-6"  style="padding: 2em">
+                <h1>捶打次数：<span style="float: right;" id="cishu"></span></h1>
+                <div class="mdui-progress">
+                     <div class="mdui-progress-determinate" style="width: 0%;" id="chuid"></div>
+                </div>
+                 <h1>小笼包：<span style="float: right;" id="geshu"></span></h1>
+                <div class="mdui-progress">
+                     <div class="mdui-progress-determinate" style="width: 0%;" id="chid"></div>
+                </div>
+                
+
+                <h2 id="is_yunle"></h2>
+            </div>
+        </div>
     </div>
-  </div>
-  <script>
-    function openPopup() {
-      document.getElementById("errorPopup").style.display = "block";
-    }
-    function closePopup() {
-      document.getElementById("errorPopup").style.display = "none";
-    }
-  </script>
+     <div class="mdui-dialog" id="xlbmvp">
+      <div class="mdui-dialog-title">吃饱了！</div>
+      <div class="mdui-dialog-content">
+        <h1>洛天依抢走你手上的5个小笼包！</h1>
+        <h2>不过，你可以<b>免费</b>观看一场来自洛天依(?)的演唱会！</h2>
+      </div>
+      <div class="mdui-dialog-actions">
+        <button class="mdui-btn mdui-ripple" mdui-dialog-cancel>哦</button>
+        <button class="mdui-btn mdui-ripple" onclick="window.open(https://www.bilibili.com/video/BV1GJ411x7h7/)">康康！</button>
+      </div>
+    </div>
 </body>
+<script>
+    const lty =  document.getElementById("lty");
+    var is_cd=true;
+    const miao = new Audio('喵.mp3');
+    if (localStorage.getItem("chuid") == null || localStorage.getItem("chid") == null) { 
+        localStorage.setItem("chuid",0)
+        localStorage.setItem("chid",0)
+    }
+    document.getElementById("chuid").style.width = localStorage.getItem("chuid")*5+"%";
+    document.getElementById("cishu").innerHTML = localStorage.getItem("chuid");
+
+    document.getElementById("chid").style.width = localStorage.getItem("chid")*20+"%";
+    document.getElementById("geshu").innerHTML = localStorage.getItem("chid");
+
+    //===================初始化
+    function boom(){
+        if (is_cd){ 
+           
+            localStorage.setItem("chuid",parseInt(localStorage.getItem("chuid"))+1);
+           lty.src = "lty.gif"
+            setTimeout(function(){
+               lty.src = "luo_tianyi.png";
+              
+            },500)
+            
+            document.getElementById("cishu").innerHTML = localStorage.getItem("chuid");
+            document.getElementById("chuid").style.width = localStorage.getItem("chuid")*5+"%";
+            if (localStorage.getItem("chuid") >= 20) {
+                localStorage.setItem("chuid",0);
+                xiaolongb()
+             }
+              miao.play(); 
+             return 0;
+        }
+        mdui.snackbar("喵喵喵，小洛晕了呢~")
+    }
+    function xiaolongb(){
+        mdui.snackbar("喵喵喵，小洛被锤晕了捏~")
+        is_cd=false
+        document.getElementById("is_yunle").innerHTML=小洛晕了呢~
+        if (localStorage.getItem("chid") >= 5) {
+                localStorage.setItem("chid",0);
+                new mdui.Dialog('#xlbmvp',{"modal":true}).open()
+             }
+        setTimeout( function(){
+            is_cd=true;
+            document.getElementById("is_yunle").innerHTML=醒了！一个小笼包！
+            localStorage.setItem("chid",parseInt(localStorage.getItem("chid"))+1)
+            document.getElementById("chid").style.width = localStorage.getItem("chid")*20+"%";
+            document.getElementById("geshu").innerHTML = localStorage.getItem("chid");
+        },3000)
+    }
+</script>
+<script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
 </html>
